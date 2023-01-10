@@ -1,0 +1,32 @@
+// 項目 ul, li 條列 ////////////////////////////////////////////////
+.newsList{
+  position: relative; padding:2em 0; margin-top:20px; margin-bottom: 20px;
+  box-shadow: #5555 0 10px 40px;
+  &>ul{
+    list-style: none; margin: 0 3vw; padding: 0; line-height: 1.6;
+    &>li{
+      margin:0; padding: 0;
+      // border-bottom: 1px solid #bbb;
+      a{
+        display: block; position: relative;
+        padding: .9em 5px .8em 2em; margin: 5px 0;
+        text-decoration: none; color: #333;
+        box-shadow: #bbb 0 2px 0 -1px;
+        
+        &::before{
+          content: ''; position: absolute; left: .5em; top: 1.4em;
+          width: 8px; height: 8px; background: #666;
+        }
+        &:hover, &:focus{
+          box-shadow: #bbb 0 4px 0 -1px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 500px){
+    
+  }
+}
+
+
