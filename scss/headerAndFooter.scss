@@ -1,0 +1,69 @@
+body {margin: 0;}
+.main {background-color: #f8f8e5;height: 15em;line-height: 15em;text-align: center;}
+
+// --------------------------------------------
+.header {
+  background: #afda59;
+  .container {
+    position: relative;
+    padding: 1.5em 0 0;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  h1 {
+    margin: 0;
+    width: 500px;
+    border: 1px dashed #fff;
+    a {
+      color: #000;
+      display: block;
+      height: 80px;
+    }
+  }
+
+  .navigation {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    border: 1px dashed #fff;
+  }
+
+  .webSearch {
+    position: absolute;
+    right: 0;
+    top: 4em;
+    height: 2em;
+    line-height: 2;
+    width: 20em;
+
+    border: 1px dashed #fff;
+  }
+
+  .menu {
+    background: #333; color: #fff;
+    &>ul {
+      list-style: none;margin: 0 auto;padding: 0;
+      max-width: 1200px;
+      &>li {
+        display: inline-block;margin: 0 1em;padding: 0;height: 3em;line-height: 3;
+      }
+    }
+  }
+}
+
+.fatFooter {
+  padding: 2em 0;
+  background: #557f7a;
+  color: #fff;
+  .container {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  nav {
+    height: 20em;
+    border: 1px dashed #fff;
+  }
+
+}
