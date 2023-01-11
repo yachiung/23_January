@@ -49,6 +49,11 @@ body {margin: 0;}
         display: inline-block;margin: 0 1em;padding: 0;height: 3em;line-height: 3;
       }
     }
+
+    @media screen and (min-width: 1200px){
+      margin-left: calc( 600px - 50vw);
+      margin-right: calc( 600px - 50vw);
+    }
   }
 }
 

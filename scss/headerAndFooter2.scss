@@ -50,14 +50,21 @@ $wwMaximum : 1200px;
 
   @media screen and (min-width: $wwMaximum){
     h1{
-      margin-left: calc(50vw - 600px);
+      margin-left: calc(50vw - $wwMaximum/2);
+      width: calc($wwMaximum/2);
     }
-    .navigation{
-      right: calc(50vw - 600px);
+    // .x{
+    //   right: calc(50vw - 600px);
+    // }
+    // .webSearch{
+    //   right: calc(50vw - 600px);
+    // }
+
+
+    .navigation, .webSearch{
+      right: calc(50vw - $wwMaximum*.5);
     }
-    .webSearch{
-      right: calc(50vw - 600px);
-    }
+
   }
 
 }
@@ -76,15 +83,17 @@ $wwMaximum : 1200px;
 
 }
 .goTop{
-
   width: 50px; height: 50px; border-radius: 50%;
   text-indent: -20em; overflow: hidden;
   border: none; background: #000; margin: 0;padding: 0;
 
   position: fixed; right: 10px; bottom: 10px;
 
+  // @media screen and (min-width: 1200px){
+  //   right: calc( 50vw - 590px);
+  // }
 
   @media screen and (min-width: calc(1200px + 140px)){
-    right: calc(50vw - 670px + 10px);
+    right: calc(50vw - 660px);
   }
 }
