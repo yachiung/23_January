@@ -1,8 +1,16 @@
+// 變數
+// ---------- RWD 斷點 ---------- //
+$wwSlim: 420px;
+$wwMedium:800px;
+$wwNormal: 1000px;
+$wwMaximum: 1360px;
+// ---------- RWD 斷點 ----------- //
+
 body{
   font-family: Helvetica, Arial, "微軟正黑體", sans-serif;
   margin: 0; padding: 0;
 }
 .main{
-  margin: 0 auto; width: 96%; max-width: 1360px;
-  border: #e99 dashed 1px;
+  margin: 0 auto; max-width: $wwMaximum;
+  box-shadow: rgba(0,0,0,.3) 0 0 20px;
 }

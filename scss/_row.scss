@@ -1,0 +1,66 @@
+div[class^="row"]{
+  outline: 1px solid #e002;
+ 
+  &>section{
+    outline: 1px dashed #666;
+    min-height: 200px;
+    &:nth-child(1) { background-color: #edc;}
+    &:nth-child(2) { background-color: #eec;}
+    &:nth-child(3) { background-color: #cee;}
+  }
+
+}
+
+.row66{
+  @media screen and (min-width: $wwMedium){
+    display: flex; flex-flow: row nowrap;justify-content: space-between;
+    &>section{flex: 0 0 50%;}
+  }
+}
+.row48{
+  @media screen and (min-width: $wwMedium){
+    display: flex; flex-flow: row nowrap;justify-content: space-between;
+    &>section{
+      &:first-child{flex: 0 0 34%;}
+      &:last-child{flex: 0 0 66%;}
+    }
+  }
+}
+.row84{
+  @media screen and (min-width: $wwMedium){
+    display: flex; flex-flow: row nowrap;justify-content: space-between;
+    &>section{
+      &:first-child{flex: 0 0 67%;}
+      &:last-child {flex: 0 0 33%;}
+    }
+  }
+}
+
+.row39{
+  @media screen and (min-width: $wwMedium){
+    display: flex; flex-flow: row nowrap;justify-content: space-between;
+    &>section{
+      &:first-child{flex: 0 0 25%;}
+      &:last-child {flex: 0 0 75%;}
+    }
+  }
+}
+.row93{
+  @media screen and (min-width: $wwMedium){
+    display: flex; flex-flow: row nowrap;justify-content: space-between;
+    &>section{
+      &:first-child{flex: 0 0 75%;}
+      &:last-child {flex: 0 0 25%;}
+    }
+  }
+}
+
+.row444{
+  @media screen and (min-width: $wwNormal){
+    display: flex; flex-flow: row nowrap;justify-content: space-between;
+    &>section{
+      flex: 0 0 33%;
+      &:first-child{ flex-basis: 34%;}
+    }
+  }
+}
