@@ -5,7 +5,6 @@
   --tabActivecolor : #ebff33;
   --focused : #f35;
 
-
   
   outline: 1px dashed #c00;
   width: 70%; margin: 30px auto;
@@ -34,17 +33,12 @@
         box-shadow: var(--focused) 0 0 0 2px inset;
       }
     }
-
-    // &::after{
-    //   left: var(--posX); top: var(--evenPadding); width: var(--width);
-    //   content: '';position: absolute; bottom: 0; height: 3em;
-    //   background: var(--tabActiveBg); border-radius: 2em;
-    //   z-index: 0; transition: .3s;
-    // }
   }
 
   .tabContent{
     padding: 20px;
+    border: 3px dashed #c00;
+
     a{
       &:focus, &:hover{ outline: 2px solid #f00;}
     }

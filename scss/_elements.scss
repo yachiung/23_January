@@ -1,0 +1,65 @@
+// 行動版時的【側欄開關】和【查詢開關】
+
+
+.sidebarCtrl, .searchCtrl {
+  --sCtrlBg : rgba(0, 0, 0, .6);
+  --sCtrlHoverBg : rgba(255, 255, 255, .5);
+  --iconColore : #000;
+
+  // ------------------------------ //
+  
+  width: 48px; height: 48px;
+  cursor: pointer;
+  background: none; border: none; border-radius: 0;
+  transition: .2s;
+  &:focus{
+    background-color: var(--sCtrlHoverBg);
+  }
+
+}
+
+//側欄開關
+.sidebarCtrl{
+  &::before,  &::after{ 
+    content: ''; position: absolute;  width: 24px; height: 2px;
+    top: calc(50% - 1px); left: 12px; 
+    background-color: var(--iconColore);
+    outline: none;
+    transition: .2s;
+  }
+  &::before{
+    box-shadow: var(--iconColore) 0 8px 0, var(--iconColore) 0 -8px 0;
+  }
+  &::after{ opacity: 0;}
+
+  &.closeIt{
+    &::before{box-shadow: none;
+      transform: rotate(45deg);
+    }
+    &::after{
+      opacity: 1;
+      transform: rotate(-45deg);
+    }
+  }
+  
+}
+
+
+//查詢開關
+.searchCtrl{
+  &::before, &::after{
+    content: ''; position: absolute;
+  }
+  &::before{
+    top: calc(50% - 17px); left: calc(50% - 17px);
+    width: 24px; height: 24px; border-radius: 50%;
+    border: 2px solid var(--iconColore);
+  }
+  &::after{
+    top: calc(50% + 9px); left: calc(50% + 4px);
+    width: 14px; height: 4px; border-radius:0 2px 2px 0;
+    transform: rotate(45deg);
+    background-color: var(--iconColore);
+    transition: .2s;
+  }
+}

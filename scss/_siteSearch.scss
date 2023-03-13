@@ -1,0 +1,28 @@
+.siteSearch{
+  background: #000b;
+  color: #fff;
+  padding: 8px 12px;
+  
+
+  
+}
+
+
+.hotKeywords{
+  .label{
+    display:inline-block;
+  }
+  ul{
+    display: inline-block;
+    list-style: none; margin: 0; padding: 0;
+    overflow: hidden;
+  }
+  li{
+    float: left; margin: 0 .6em; line-height: 1;
+    a{
+      display: block;
+      height: 1.6em; line-height: 1.6;
+      color: #fff;
+    }
+  }
+}
