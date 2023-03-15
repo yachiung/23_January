@@ -1,0 +1,117 @@
+// 主選單
+// 含行動版 與 寬螢幕版
+.menu{
+  ul{
+    list-style: none; margin: 0; padding: 0; line-height: 1.4;
+    li{ margin: 0; padding: 0;}
+    a{
+      display: block; position: relative; text-decoration: none;
+      outline: none;
+    }
+  }
+}
+
+
+// 行動版
+.sideBar .menu{
+  &>ul{
+    li{
+      a{
+        position: relative;
+        color: black;
+      }
+      
+      &.hasChild{
+        &>a{
+          padding-right: 36px;
+          &::after{
+            content: ''; position: absolute; right: 15px; top: 1.2em;
+            width: 8px; height: 8px; border: 2px solid black;
+            transform: rotate(45deg); border-left: none; border-top: none;
+            transition: .2s;
+          }
+        }
+        &.closeIt>a{
+          &::after{ transform: rotate(225deg); top: 1.5em; }
+        }
+
+        &>ul{
+          border-top: 1px dashed gray;
+        }
+      }
+
+      // 第二層選單項目和其之後
+      ul{ 
+        display: none;
+        li{
+          border-bottom: 1px dashed gray;
+          &:last-child{
+            border-bottom: none;
+          }
+          a{
+            padding: .7em .8em .6em 36px;
+            &::before{
+              content: ''; position: absolute; left: 1rem; top: 1.2em;
+              width: 5px; height: 5px; 
+              background-color: black;
+
+              transition: .2s;
+            }
+            &:hover, &:focus{
+              &::before{
+                width: 10px;
+              }
+            }
+          }
+
+        }
+        // 第三層和其之後
+        ul{ 
+          margin-left: 32px; border-top: none;
+          a{ 
+            padding-left: 22px;
+            &::before {left: 7px; height: 1px;}
+          }
+        }
+      }
+    }
+
+
+    // 第一層選單項目
+    &>li{
+      border-bottom: 1px solid black;
+      &>a{
+        position: relative;
+        padding: .9em .8em .8em; transition: .2s;
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    display: none;
+  }
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+// 寬螢幕版
+.header .menu{
+  display: none;
+  background: #333; color: #fff;
+  &>ul{ 
+    list-style: none;margin: 0 auto;padding: 0;
+    max-width: $wwMaximum;
+    &>li {
+      float: left;;margin: 0 1em;padding: 0;height: 3em;line-height: 3;
+    }
+    &::after{
+      content: ''; display: block; clear: both;
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    display: block;
+  }
+}
+

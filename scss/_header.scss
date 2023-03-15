@@ -1,28 +1,28 @@
 // 網站全域版頭 //
 .header{
-  position: relative;background: #afda59;
-  overflow: hidden;
+  position: relative; overflow: hidden;
+  height: $mobileHeaderHeight;
+
+  background-color: white;
+  box-shadow: gray 0 1px 0;
+
+  // ---- var ----
+  --mhr: 30px;
+  // ---- var ----
 
   h1{
     margin: 0 auto; padding: 0; text-align: center;
-    width: calc(100% - 120px);
-    // border: 1px solid #fff6;
+    width: calc(100% - 120px); height: auto;
+    font-size: 1.5rem; line-height: 1;
     a {
-      display: block;height: 64px;
-      color: #000;
+      display: block;
+      height: $mobileHeaderHeight; line-height: $mobileHeaderHeight;
     }
   }
 
   .topNav {display: none;}
 
-  .siteSearch{
-    position: fixed; left: 100%; right:-100%;
-    transition: .5s;
-    &.show{
-      left: 0; right: 0;
-    }
-    
-  }
+
 
   .menu{ display: none;}
 
@@ -32,25 +32,32 @@
     position: absolute; top: 50%;
     transform: translateY(-50%);
   }
-  .sidebarCtrl{ left: 5px; }
-  .searchCtrl { right: 5px; }
+  .sidebarCtrl{ left: 8px; }
+  .searchCtrl { right: 8px; }
 
   @media screen and (min-width: $wwNormal){
     .sidebarCtrl, .searchCtrl {display: none;}
     .menu{ display: block;}
-    overflow: visible;
+
+
+
+
+    height: auto; overflow: visible;
+    background-color: #ddb;
+
     h1{
-      margin: 0 0 0 30px;width: 50%;
-      text-align: left;
+      margin-left: var(--mhr);
+      width: 50%; text-align: left;
+      font-size: 2rem;
       border: 1px dashed #fff;
       a {
-        display: block;height: 100px;color: #000;
+        display: block;height: 160px;
       }
     }
     .topNav {
       display: block;
-      position: absolute;right: 0;top: 0;
-      padding:8px 20px 4px 0;
+      position: absolute; top: 0; right: var(--mhr);
+      padding:8px 0 4px; 
 
       border: 1px dashed #fff; // 刪掉
 
@@ -76,17 +83,16 @@
         }
       }
     }
-    .siteSearch{
-      position: absolute; left: auto; right: 0;top: 4em;line-height: 2;
-      width: 24em;
-      border: 1px dashed #fff; 
-    }
+
+    .search{ right: var(--mhr); border: 1px dashed #fff;}
 
 
     
   }
 
-  @media screen and (min-width: $wwMaximum){
+  @media screen and ( min-width: calc( $wwMaximum + 60px ) ){
+    // 60px =  var(--mhr)*2
+
     h1{
       margin-left: calc(50vw - $wwMaximum/2);
       width: calc($wwMaximum/2);
@@ -106,20 +112,7 @@
 
 
 
-//
-.menu{
-  background: #333; color: #fff;
-  &>ul{ 
-    list-style: none;margin: 0 auto;padding: 0;
-    max-width: $wwMaximum;
-    &>li {
-      float: left;;margin: 0 1em;padding: 0;height: 3em;line-height: 3;
-    }
-    &::after{
-      content: ''; display: block; clear: both;
-    }
-  }
-}
+
 
 
 

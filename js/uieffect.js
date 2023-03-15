@@ -14,7 +14,7 @@ $(document).ready(function(){
   })
 
   var _searchCtrl = $('.searchCtrl');
-  var _siteSearch = $('.siteSearch');
+  var _siteSearch = $('.search');
 
   _searchCtrl.click( function(){
     _siteSearch.hasClass('show') ? _siteSearch.removeClass('show') :  _siteSearch.addClass('show');

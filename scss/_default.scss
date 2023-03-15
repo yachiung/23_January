@@ -6,6 +6,17 @@ $wwNormal: 1000px;
 $wwMaximum: 1360px;
 // ---------- RWD 斷點 ----------- //
 
+// ---------- 長度常數 ---------- //
+$sideBarWidth: 280px;  // 窄版側欄選單
+$mobileWidth: 92vw; // 窄螢幕寬度 moduals width in mobile
+$normalWidth: 82vw; // 寬螢幕寬度
+$mobileHeaderHeight: 64px; // 行動版 header 高度
+// ---------- 長度常數 ---------- //
+
+$sidebarBg: #0009;
+
+
+
 body{
   font-family: Helvetica, Arial, "微軟正黑體", sans-serif;
   margin: 0; padding: 0;
