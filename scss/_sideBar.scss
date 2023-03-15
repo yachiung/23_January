@@ -1,0 +1,21 @@
+$sideBarWidth: 280px;
+
+.sideBar{
+  position: fixed; z-index: 990;
+  width: $sideBarWidth; margin-left:$sideBarWidth * (-1);
+  top: 67px; bottom: 0; overflow: auto;
+  // background: $sidebarBg; color: $fontInvert;
+  transition: .5s;
+
+  outline: 1px dashed red;
+  background: #0008;
+
+  &.reveal{ margin-left:0; }
+
+
+  // 行動版側欄主選單
+  .menu{
+    outline: 1px dashed red;
+    
+  }
+}

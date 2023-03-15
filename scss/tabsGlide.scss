@@ -6,10 +6,7 @@
   --tabFocused : #fbfe40;
   // ------ //
   --evenPadding: 6px;
-
-
   
-  // outline: 1px dashed #f006;
   width: 96%; margin: 30px auto;
 
   * {box-sizing: border-box;}
@@ -90,7 +87,7 @@
     }
 
     .tabContent{
-     
+     border: 1px solid red;
     }
   }
 
