@@ -1,10 +1,18 @@
 // 網站全域版頭 //
 .header{
+  z-index: 990;
   position: relative; overflow: hidden;
   height: $mobileHeaderHeight;
 
+  
   background-color: white;
   box-shadow: gray 0 1px 0;
+  transition: .2s;;
+  
+  &.fixed{
+    position: fixed; top: 0; left: 0; right: 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 8px;
+  }
 
   // ---- var ----
   --mhr: 30px;
@@ -26,6 +34,12 @@
 
   .menu{ display: none;}
 
+  // 查詢
+  .search {
+    z-index: 999;
+    position: fixed; left: 100%; right: -100%; top: $mobileHeaderHeight;
+    padding: 8px 12px;
+  }
 
   // 側欄開關和查詢開關
   .sidebarCtrl, .searchCtrl {
@@ -39,11 +53,12 @@
     .sidebarCtrl, .searchCtrl {display: none;}
     .menu{ display: block;}
 
-
-
-
     height: auto; overflow: visible;
     background-color: #ddb;
+
+    &.fixed{
+      h1, .topNav, .search{ display: none;}
+    }
 
     h1{
       margin-left: var(--mhr);
@@ -84,8 +99,13 @@
       }
     }
 
-    .search{ right: var(--mhr); border: 1px dashed #fff;}
+    .search {
+      position: absolute; left: auto; right: var(--mhr);
+      &.show{ left: auto;}
 
+
+      border: 1px dashed #fff;
+    }
 
     
   }

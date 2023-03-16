@@ -13,7 +13,7 @@
 
 
 // 行動版
-.sideBar .menu{
+.sidebar .menu{
   &>ul{
     li{
       a{
@@ -98,20 +98,98 @@
 // 寬螢幕版
 .header .menu{
   display: none;
-  background: #333; color: #fff;
-  &>ul{ 
-    list-style: none;margin: 0 auto;padding: 0;
-    max-width: $wwMaximum;
-    &>li {
-      float: left;;margin: 0 1em;padding: 0;height: 3em;line-height: 3;
-    }
-    &::after{
-      content: ''; display: block; clear: both;
-    }
-  }
-
+ 
+ 
   @media screen and (min-width: $wwNormal){
-    display: block;
+    display: block; position: relative; z-index: 990;
+    background: #333; color: #fff;
+    a{ display: block;}
+    li{margin: 0; padding: 0;}
+
+    &>ul{ 
+      list-style: none;margin: 0 var(--mhr);padding: 0;
+      max-width: $wwMaximum;
+      line-height: 1.5;
+
+      li{position: relative;}
+      // &::after{
+      //   content: ''; display: block; clear: both;
+      // }
+
+      // 第一層選單項
+      &>li {
+        float: left;
+
+        &>a{
+          height: 3em;line-height: 3; padding: 0 1em;
+          white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
+
+          color:white;
+          border: 1px dashed #999;
+        }
+
+        &.hasChild{
+          &>a{
+            padding-right: 36px;
+          }
+        }
+
+        &>ul{
+          top: auto; left: 0; // 第二層選單定位
+          ul{ 
+            top: 0; left: 100%;// 第三層選單以及之後的選單定位
+          }
+        }
+
+        // 任一層次選單
+        ul{ 
+          display: none;
+          position: absolute;
+          min-width: 180px; max-width: 12em;
+          padding:1px;
+          background: white;
+          box-shadow: rgba(0,0,0,.3) 0 0 8px;
+          &>li{
+            border-bottom: 1px solid #ccc;
+            &:last-child {
+              border-bottom: none;
+            }
+            &>a{
+              padding: .8em 12px .7em;
+              transition: .2s;
+              color: black;
+              &:hover, &:focus{
+                background: black; color: white;
+              }
+            }
+
+            &.hasChild{
+              &>a{
+                padding-right: 36px;
+                &::after{
+                  content: ''; position: absolute; right: 10px; top: 1.15em;
+                  width: 7px;height: 7px;
+                  transform: rotate(45deg);
+                  border: 2px solid black; border-left: none; border-bottom: none;
+                }
+
+                &:hover, &:focus{
+                  &::after { border-color: white;}
+                }
+
+              }
+            }
+            
+          }
+        }
+      }
+
+
+      &::after{
+        content: ''; display: block; clear: both;
+      }
+
+    }
   }
 }
 

@@ -1,8 +1,8 @@
 .header .search{
-  z-index: 999;
-  position: fixed; left: 100%; right:-100%;
-  top: $mobileHeaderHeight;
-  padding: 8px 12px;
+  // z-index: 999;
+  // position: fixed; left: 100%; right:-100%;
+  // top: $mobileHeaderHeight;
+  // padding: 8px 12px;
   
   transition: .5s;
   background-color: #ddb;
@@ -49,6 +49,10 @@
     background: none;
     transition: none;
 
+    &.show{
+      left: auto;
+    }
+
     form{
       width: 18em;
       input[type="text"]{ width: 12em;}
@@ -63,27 +67,29 @@
   
 }
 
+////////////////////////////////////////////////////////////////
+
 // 熱門查詢關鍵字
 .search .hotKeywords{
   line-height: 1.2; 
   .label {
-      display: inline-block; vertical-align: top; margin-right: .5em;
-      &::after{
-        content: ' :';
+    display: inline-block; vertical-align: top; margin-right: .5em;
+    &::after{
+      content: ' :';
+    }
+  }
+  ul {
+    list-style: none; margin: 0; padding: 0;
+    display: inline-block; overflow: hidden;
+  }
+  li {
+    float: left; margin: 0 1em 0 0;
+    a {
+      display: block; text-decoration: none;
+      border-bottom: 2px solid transparent;
+      &:hover, &:focus {
+        border-bottom-color: black;
       }
     }
-    ul {
-      list-style: none; margin: 0; padding: 0;
-      display: inline-block; overflow: hidden;
-    }
-    li {
-      float: left; margin: 0 1em 0 0;
-      a {
-        display: block; text-decoration: none; cursor: pointer;
-        border-bottom: 2px solid transparent;
-        &:hover, &:focus {
-          border-bottom-color: black;
-        }
-      }
-    }
+  }
 }

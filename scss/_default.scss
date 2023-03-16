@@ -20,10 +20,23 @@ $sidebarBg: #0009;
 body{
   font-family: Helvetica, Arial, "微軟正黑體", sans-serif;
   margin: 0; padding: 0;
+  &.noScroll{
+    overflow: hidden; overflow-y:hidden;
+  }
+  
+  *{box-sizing: border-box;}
 }
 .main{
   margin: 0 auto; max-width: $wwMaximum;
   box-shadow: rgba(0,0,0,.3) 0 0 20px;
 }
 
-*{box-sizing: border-box;}
+
+////////////////////////////////////////////////////////////////
+
+// form 元件
+input{
+  &[type="button"], &[type="submit"], &[type="reset"],
+  &[type="radio"], &[type="checkbox"] { cursor: pointer; }
+}
+button{ cursor: pointer; }
