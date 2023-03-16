@@ -113,6 +113,8 @@ $(document).ready(function(){
   ww >= wwNormal ? fixHeadThreshold = hh - _menu.outerHeight() : fixHeadThreshold = 0;
 
   _window.scroll( function() {
+
+    // 固定版頭
     if (_window.scrollTop() > fixHeadThreshold ) {
 			_header.addClass('fixed');
 			_body.offset({ top: hh });
@@ -120,6 +122,10 @@ $(document).ready(function(){
 			_header.removeClass('fixed');
 			_body.removeAttr('style');
 		}
+
+    // goTop button 顯示、隱藏
+    _window.scrollTop() > 200 ? _goTop.addClass('show') : _goTop.removeClass('show');
+
   });
 
 

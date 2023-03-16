@@ -76,3 +76,42 @@
   display: none;
 
 }
+
+
+// 回頁面頂端
+.goTop{
+  position: fixed; bottom: -60px; right: 12px;
+  width: 50px; height: 50px; 
+
+  &.show{bottom: 12px; }
+  
+  text-indent: -20em;overflow: hidden;
+  border-radius: 50%;border: none; background: gray;
+  transition: bottom .6s, box-shadow .2s;
+  &::before, &::after {
+    content: ''; position: absolute;
+  }
+  &::before {
+    box-sizing: content-box; top: 12px; left: calc(50% - 11px);
+    width: 0; height: 0;
+    border-style:solid; border-width: 0 11px 9px 11px; border-color: transparent transparent white transparent;
+  }
+  &::after{
+    width: 10px; height: 2px; top: 50%; left: calc(50% - 5px);
+    background-color: white;
+    box-shadow: rgba(#fff, .6) 0 5px, rgba(#fff, .3) 0 10px;
+    transition: .2s;
+  }
+
+  &:hover{
+    background-color: black;box-shadow:gray 0 0 0 3px;
+    &::after{
+      height: 4px; top: calc(50% - 2px);
+    }
+  }
+
+  @media screen and (min-width: calc($wwMaximum + 160px)){
+    left: calc(50% + $wwMaximum*.5 + 15px);
+  }
+
+}
