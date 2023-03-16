@@ -13,7 +13,9 @@ $(document).ready(function(){
   var _sidebarCtrl = $('.sidebarCtrl');
   var _sidebar = $('.sidebar');
 
-  
+  var _goTop = $('.goTop');
+  var _footer = $('.footer');
+
   // RWD 螢幕寬度斷點 ---------- //
   const wwSlim =  420;
   const wwMedium = 800;
@@ -167,5 +169,20 @@ $(document).ready(function(){
 	});
 
 
+
+
+	// 向上捲動箭頭 //////////////////////////////
+	_goTop.click(function () {
+		_html.stop(true, false).animate({ scrollTop: 0 }, 800, function () {
+			if ($('.goCenter').is(':visible')) {
+				$('.goCenter').focus();
+			} else {
+				_sidebarCtrl.focus();
+			}
+		});
+	});
+	_header.find('.accesskey').focus(function () {
+		_html.stop(true, false).animate({ scrollTop: 0 }, 800);
+	})
 
 })
