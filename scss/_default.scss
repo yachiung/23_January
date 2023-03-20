@@ -24,11 +24,26 @@ body{
     overflow: hidden; overflow-y:hidden;
   }
   
-  *{box-sizing: border-box;}
+  *{ box-sizing: border-box;
+    &::before, &::after {box-sizing: border-box;}
+  }
 }
+
 .main{
   margin: 0 auto; max-width: $wwMaximum;
   box-shadow: rgba(0,0,0,.3) 0 0 20px;
+}
+
+.accesskey{ 
+  display: none; text-decoration: none; outline: none;
+  @media screen and (min-width: $wwNormal){
+    display: block; position: absolute;
+    width: 1.2em; text-align: center;
+    &:focus{
+      outline: 1px solid #000;
+    }
+  }
+
 }
 
 

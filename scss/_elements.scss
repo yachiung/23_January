@@ -78,6 +78,31 @@
 }
 
 
+// fat footer 開關
+.fatFootCtrl{
+  border: none; outline: none; background: #666;
+  width: 40px;height: 40px;
+  text-indent: -20em; overflow: hidden;
+  position: absolute; top: 0; left: calc(50% - 20px);
+  transition: .2s;
+
+  &::before{
+    content: ''; position: absolute; top: 17px; left: 14px;
+    width: 12px; height: 12px; transform: rotate(225deg);
+    border: 3px solid #fff; border-top: none; border-left: none;
+    transition: .3s;
+  }
+
+  &:hover, &:focus { background: #000;}
+  &:focus{box-shadow:#aaa 0 0 0 1px inset, #000 0 0 0 3px;}
+
+  &.closed {
+    &::before{ transform: rotate(45deg); top: 12px;}
+  }
+
+}
+
+
 // 回頁面頂端
 .goTop{
   position: fixed; bottom: -60px; right: 12px;
@@ -92,22 +117,19 @@
     content: ''; position: absolute;
   }
   &::before {
-    box-sizing: content-box; top: 12px; left: calc(50% - 11px);
+    box-sizing: content-box; top: 14px; left: calc(50% - 11px);
     width: 0; height: 0;
     border-style:solid; border-width: 0 11px 9px 11px; border-color: transparent transparent white transparent;
   }
   &::after{
-    width: 10px; height: 2px; top: 50%; left: calc(50% - 5px);
+    width: 10px; height: 6px; top: 50%; left: calc(50% - 5px);
     background-color: white;
-    box-shadow: rgba(#fff, .6) 0 5px, rgba(#fff, .3) 0 10px;
+    // box-shadow: rgba(#fff, .6) 0 5px, rgba(#fff, .3) 0 10px;
     transition: .2s;
   }
 
   &:hover{
     background-color: black;box-shadow:gray 0 0 0 3px;
-    &::after{
-      height: 4px; top: calc(50% - 2px);
-    }
   }
 
   @media screen and (min-width: calc($wwMaximum + 160px)){

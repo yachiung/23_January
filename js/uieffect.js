@@ -175,6 +175,21 @@ $(document).ready(function(){
 	});
 
 
+  // fatfooter 開合 //////////////////////////////
+  var _fatFootCtrl = $('.fatFootCtrl');
+  var _footSiteTree = $('.fatFooter').find('.siteTree>ul>li>ul');
+  var fatFootCtrlText1 = _fatFootCtrl.text();
+  var fatFootCtrlText2 = _fatFootCtrl.attr('data-altText');
+
+  _fatFootCtrl.click(function(){
+    if ( _footSiteTree.is(':visible')) {
+      _footSiteTree.stop(true,false).slideUp();
+      $(this).addClass('closed').text(fatFootCtrlText2);
+    } else {
+      _footSiteTree.stop(true,false).slideDown();
+      $(this).removeClass('closed').text(fatFootCtrlText1);
+    }
+  })
 
 
 	// 向上捲動箭頭 //////////////////////////////
