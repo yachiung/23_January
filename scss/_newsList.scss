@@ -2,8 +2,7 @@
 .newsList{
   position: relative; padding:2em 0; margin:20px auto;
   .blockHeader{ 
-    margin: 0 auto;
-    text-align: center; border-bottom: 3px solid #888;
+    border-bottom: 3px solid #888;
   }
   &>ul{
     list-style: none; margin: 0 3vw; padding: 0; line-height: 1.6;
@@ -32,12 +31,12 @@
   }
   
   @media screen and (min-width: $wwNormal){
-    width: calc(100% - 60px);
+    width: calc(100% - $globalPadding*2);
     box-shadow: #5555 0 10px 40px;
   }
 
-  @media screen and (min-width: calc( $wwMaximum + 60px)){
-    width: $wwMaximum;
+  @media screen and (min-width: $wwMaximum){
+    width: calc($wwMaximum - $globalPadding*2);
   }
 }
 

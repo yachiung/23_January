@@ -37,6 +37,7 @@ body{
   padding: 1px 0 0;
 }
 
+
 .accesskey{ 
   display: none; text-decoration: none; outline: none;
   @media screen and (min-width: $wwNormal){
@@ -46,6 +47,17 @@ body{
       outline: 1px solid #000;
     }
   }
+}
+@media screen and (min-width: $wwMaximum ){
+  .header .accesskey {left: calc(50% - $wwMaximum*.5 - 30px);}
+  .main .accesskey {}
+  .footer .accesskey {}
+}
+// --------
+
+
+.blockHeader{
+  margin: 0 auto; text-align: center;
 }
 
 
