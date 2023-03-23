@@ -49,6 +49,7 @@
     .fatFooter{display: block;max-width: $wwMaximum; margin: 0 auto;}
 
     .siteTree{
+      border: 1px solid red;
       padding: 15px;
       ul{ list-style: none; margin: 0; padding: 0; line-height: 1.4;}
       a{display: block; text-decoration: none; outline: none; color: black;}
@@ -57,9 +58,12 @@
       &>ul{
         display: flex; flex-flow: row wrap;
         &>li{
-          flex: 0 0 17%;
+          flex: 1 0 17%;
           // border: 1px solid pink;
           margin: 0.5em 1.5% 1em;
+          &:nth-child(5n+1) {
+            flex-grow:0 ;
+          }
 
           &>a{
             // border-bottom: 1px solid #000;

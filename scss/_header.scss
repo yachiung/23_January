@@ -112,7 +112,6 @@
 
   @media screen and ( min-width: calc( $wwMaximum + 60px ) ){
     // 60px =  var(--mhr)*2
-
     h1{
       margin-left: calc(50vw - $wwMaximum/2);
       width: calc($wwMaximum/2);
@@ -122,11 +121,18 @@
       right: calc(50vw - $wwMaximum*.5);
     }
 
-
-
-
+    .accesskey {
+      left: calc(50% - $wwMaximum*.5 - 30px);
+    }
 
   }
+
+  // @media screen and (min-width: $wwMaximum){
+  //   .accesskey {
+  //     left: calc(50% - $wwMaximum*.5);
+  //   }
+
+  // }
 
 }
 

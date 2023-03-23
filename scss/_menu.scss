@@ -102,39 +102,34 @@
  
   @media screen and (min-width: $wwNormal){
     display: block; position: relative; z-index: 990;
-    background: gray; color: white;
+    background: #000; color: #fff;
     padding: 0 var(--mhr);
     a{ display: block;}
     li{margin: 0; padding: 0;}
     
     &>ul{ 
       list-style: none; margin: 0 auto;padding: 0;
-      max-width: $wwMaximum;
-      line-height: 1.5;
+      max-width: $wwMaximum; line-height: 1.5;
+      display: flex; flex-flow: row nowrap;
 
-      li{position: relative;}
+      .hasChild{position: relative;}
 
       // 第一層選單項
       &>li {
-        float: left;
+        flex: 1 1 auto;
 
         &>a{
-          height: 3em;line-height: 3; padding: 0 1em;
+          height: 3em;line-height: 3; padding: 0 .3em; text-align: center;
           white-space: nowrap; text-overflow: ellipsis; overflow: hidden;
           color:white;
-          &:focus{
-            background-color: black;
-          }
+          &:focus{background-color: black;}
         }
-        &:hover>a{
-          background-color: black;
-        }
+        &:hover>a{background-color: black;}
 
-        &.hasChild{
+        &.hasChild {
           &>a{
-            position: relative; padding-right: 36px;
             &::after{
-              content: ''; position: absolute; right: 14px; top: 1.1em;
+              content: ''; display: inline-block; margin:-4px 0 0 .6em; vertical-align: middle;
               width: 7px;height: 7px;
               transform: rotate(135deg);
               border: 2px solid white; border-left: none; border-bottom: none;
@@ -149,16 +144,15 @@
         &>ul{
           top: auto; left: 0; // 第二層選單定位
           ul{ 
-            top: 0; left: 100%;// 第三層選單以及之後的選單定位
+            top: 0; left: 100%;z-index: 99;// 第三層選單以及之後的選單定位
           }
         }
 
         // 第二、三、四...層選單
-        ul{ 
+        ul{
           display: none;
           position: absolute;
           min-width: 180px; max-width: 12em;
-          padding:1px;
           background: white;
           box-shadow: rgba(0,0,0,.3) 0 0 8px;
           &>li{
@@ -196,6 +190,12 @@
                 &::after { border-color: white;}
               }
 
+              // 轉向
+              &.turn {
+                &>a::after{
+                  transform: rotate(225deg);
+                }
+              }
             }
             
           }

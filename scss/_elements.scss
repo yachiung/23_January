@@ -1,6 +1,24 @@
+// 跳至內容區 ----------------------------------------------
+a.goCenter{
+  display: none;
+  @media screen and (min-width: $wwNormal){
+    display: block; position: absolute; top: -2em; left: 0; z-index: 999;
+    padding: 0 1em; margin-left: 2em; border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    font-size: .9rem; height: 1.6em; line-height: 1.6;
+    background-color: #000; color: #fff;
+    text-decoration: none; outline: none;  cursor: pointer;
+    transition:top .3s; 
+    &:focus{ top: 0;}
+    &:hover, &:focus{  opacity: 1; color: $fontInvert;}
+  }
+  @media screen and (min-width: $wwMaximum){
+    left: calc(50vw  - #{$wwMaximum}*.5);
+  }
+}
+
+
 // 行動版時的【側欄開關】和【查詢開關】
-
-
 .sidebarCtrl, .searchCtrl {
 
   --sCtrlHoverBg : #ddd;
