@@ -1,13 +1,11 @@
-  // 查詢
-  .search {
-    z-index: 999;
-    position: fixed; left: 100%; right: -100%; top: $mobileHeaderHeight;
-  }
-
+// 查詢
 .header .search{
-  transition: .5s;
-  background-color: #ddb;
+  z-index: 999; display: none;
+  position: fixed; left: 100%; right: -100%; top: $mobileHeaderHeight;
   padding: 8px 12px;
+
+  transition: .5s;
+  background-color: #fd6;
   &.show{
     left: 0; right: 0;
   }
@@ -45,6 +43,7 @@
 
   @media screen and (min-width: $wwNormal){
 
+    display: block;
     position: absolute; left: auto;top: 4em; right: $globalPadding;
     padding: 0;
     background: none;

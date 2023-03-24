@@ -36,9 +36,14 @@ $(document).ready(function(){
   _html.removeClass('no-js');
 
 
-  // 主選單（寬螢幕版） ////////////////////
+  // 主選單 ////////////////////////////////////////
   // 找出_menu中有次選單的li
   _menu.find('li').has('ul').addClass('hasChild');
+  // 複製「主選單」到行動版側欄 ////////////////////
+  _menu.clone().prependTo(_sidebar);
+  var _sidebarMenu = _sidebar.find('.menu');
+  $('.topNav').clone().appendTo(_sidebar);
+
   // 寬版主選單 ////////////////////////////
   var _hasChild = _menu.find('.hasChild');
   var _hasChildA = _hasChild.children('a');
@@ -145,10 +150,6 @@ $(document).ready(function(){
 	})
 
 
-  // 複製「主選單」到行動版側欄 ////////////////////
-  _menu.clone().prependTo(_sidebar);
-  $('.topNav').clone().appendTo(_sidebar);
-
 
   // 行動版側欄顯示、隱藏 ////////////////////
   _sidebarCtrl.click(function(){
@@ -171,11 +172,18 @@ $(document).ready(function(){
     $(this).fadeOut(400);
   });
 
+  // 鍵盤操作：在_sidebarCtrl 按 Tab 鍵進入側欄主選單
+  _sidebarCtrl.keypress(function (e) {
+    if ( _sidebar.hasClass('show') && e.code === "Tab" ) {
+      // _sidebarMenu.find('.first>a').focus();
+      _sidebar.find('button').focus();
+
+    }
+  });
+
 
   // 行動版主選單第二層之後的顯示、隱藏 ////////////////////
-  var _sidebarMenu = _sidebar.find('.menu');
   var _sidebarHasChild = _sidebarMenu.find('.hasChild>a');
-
   _sidebarHasChild.click(function(e){
     e.preventDefault();
 
@@ -198,10 +206,19 @@ $(document).ready(function(){
 
   // 版頭區查詢顯示、隱藏 ////////////////////
   var _searchCtrl = $('.searchCtrl');
-  var _search = $('.search');
+  var _search = _header.find('.search');
   _searchCtrl.click( function(){
-    _search.hasClass('show') ? _search.removeClass('show') :  _search.addClass('show');
+    _search.hasClass('show') ? hideSearch() : showSearch();
   });
+  function showSearch() {
+    _search.show(100, function(){
+      _search.addClass('show');
+    })
+  }
+  function hideSearch() {
+    _search.removeClass('show');
+    setTimeout( function(){ _search.removeAttr('style') }, 600);
+  }
 
 
   // 固定版頭 ////////////////////

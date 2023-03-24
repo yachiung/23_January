@@ -1,5 +1,5 @@
 // 主選單
-// 含行動版 與 寬螢幕版
+// 主選單，含行動版 與 寬螢幕版
 .menu{
   ul{
     list-style: none; margin: 0; padding: 0; line-height: 1.4;
@@ -11,7 +11,10 @@
   }
 }
 
-
+.sidebar >button {
+  transition: 1s;
+  &:focus { background: #c00; margin-left: 20px;}
+}
 // 行動版
 .sidebar .menu{
   &>ul{
@@ -19,6 +22,9 @@
       a{
         position: relative;
         color: black;
+        &:hover, &:focus{
+          background-color: silver;
+        }
       }
       
       &.hasChild{
@@ -32,7 +38,7 @@
           }
         }
         &.closeIt>a{
-          &::after{ transform: rotate(225deg); top: 1.5em; }
+          &::after{ transform: rotate(225deg); top: 1.4em; }
         }
 
         &>ul{
@@ -58,19 +64,20 @@
               transition: .2s;
             }
             &:hover, &:focus{
+              // background-color: silver;
               &::before{
-                width: 10px;
+                box-shadow: black 0 0 0 2px;
               }
             }
           }
-
         }
+
         // 第三層和其之後
         ul{ 
           margin-left: 32px; border-top: none;
           a{ 
             padding-left: 22px;
-            &::before {left: 7px; height: 1px;}
+            &::before {left: 4px; }
           }
         }
       }
@@ -98,7 +105,6 @@
 // 寬螢幕版
 .header .menu{
   display: none;
- 
  
   @media screen and (min-width: $wwNormal){
     display: block; position: relative; z-index: 990;
