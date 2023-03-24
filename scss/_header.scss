@@ -3,20 +3,14 @@
   z-index: 990;
   position: relative; overflow: hidden;
   height: $mobileHeaderHeight;
-
   
-  background-color: white;
-  box-shadow: gray 0 1px 0;
+  background-color: #ddd;
   transition: .2s;;
   
   &.fixed{
     position: fixed; top: 0; left: 0; right: 0;
-    box-shadow: rgba(0,0,0,.3) 0 2px 8px;
   }
 
-  // ---- var ----
-  --mhr: 30px;
-  // ---- var ----
 
   h1{
     margin: 0 auto; padding: 0; text-align: center;
@@ -29,17 +23,9 @@
   }
 
   .topNav {display: none;}
-
-
-
   .menu{ display: none;}
 
-  // 查詢
-  .search {
-    z-index: 999;
-    position: fixed; left: 100%; right: -100%; top: $mobileHeaderHeight;
-    padding: 8px 12px;
-  }
+
 
   // 側欄開關和查詢開關
   .sidebarCtrl, .searchCtrl {
@@ -54,24 +40,23 @@
     .menu{ display: block;}
 
     height: auto; overflow: visible;
-    background-color: #ddb;
 
     &.fixed{
       h1, .topNav, .search{ display: none;}
     }
 
     h1{
-      margin-left: var(--mhr);
-      width: 50%; text-align: left;
-      font-size: 2rem;
+      margin: 0 0 0 $globalPadding; width: 50%;  
+      font-size: 2rem;text-align: left;
       border: 1px dashed #fff;
       a {
-        display: block;height: 160px;
+        padding: 20px 0 0 0;
+        display: block; height: 160px;line-height: 1;
       }
     }
     .topNav {
       display: block;
-      position: absolute; top: 0; right: var(--mhr);
+      position: absolute; top: 0; right: $globalPadding;
       padding:8px 0 4px; 
 
       border: 1px dashed #fff; // 刪掉
@@ -98,39 +83,23 @@
         }
       }
     }
-
-    .search {
-      position: absolute; left: auto; right: var(--mhr);
-      &.show{ left: auto;}
-
-
-      border: 1px dashed #fff;
-    }
-
-    
   }
 
-  @media screen and ( min-width: calc( $wwMaximum + 60px ) ){
-    // 60px =  var(--mhr)*2
+  @media screen and ( min-width: $wwMaximum ){
     h1{
-      margin-left: calc(50vw - $wwMaximum/2);
+      margin-left: calc(50vw - $wwMaximum/2 + $globalPadding);
       width: calc($wwMaximum/2);
     }
 
-    .topNav, .search{
-      right: calc(50vw - $wwMaximum*.5);
+    .topNav {
+      right: calc(50vw - $wwMaximum*.5 + $globalPadding);
     }
 
 
 
   }
 
-  // @media screen and (min-width: $wwMaximum){
-  //   .accesskey {
-  //     left: calc(50% - $wwMaximum*.5);
-  //   }
 
-  // }
 
 }
 

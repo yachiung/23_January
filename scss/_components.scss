@@ -13,16 +13,16 @@ a.goCenter{
     &:hover, &:focus{  opacity: 1; color: $fontInvert;}
   }
   @media screen and (min-width: $wwMaximum){
-    left: calc(50vw  - #{$wwMaximum}*.5);
+    left: calc(50vw  - $wwMaximum*.5);
   }
 }
 
 
-// 行動版時的【側欄開關】和【查詢開關】
+// 行動版時的【側欄開關】和【查詢開關】------------------------------
 .sidebarCtrl, .searchCtrl {
 
-  --sCtrlHoverBg : #ddd;
-  --iconColore : #000;
+  --sCtrlHoverBg : #fff9;
+  --iconColor : #000;
 
   // ------------------------------ //
   
@@ -39,17 +39,17 @@ a.goCenter{
 
 }
 
-//側欄開關
+// 側欄開關（行動版）------------------------------
 .sidebarCtrl{
   &::before,  &::after{ 
     content: ''; position: absolute;  width: 24px; height: 2px;
     top: calc(50% - 1px); left: 12px; 
-    background-color: var(--iconColore);
+    background-color: var(--iconColor);
     outline: none;
     transition: .2s;
   }
   &::before{
-    box-shadow: var(--iconColore) 0 8px 0, var(--iconColore) 0 -8px 0;
+    box-shadow: var(--iconColor) 0 8px 0, var(--iconColor) 0 -8px 0;
   }
   &::after{ opacity: 0;}
 
@@ -62,26 +62,24 @@ a.goCenter{
       transform: rotate(-45deg);
     }
   }
-
-
 }
 
 
-//查詢開關
+// 查詢開關（行動版） ------------------------------
 .searchCtrl{
   &::before, &::after{
     content: ''; position: absolute;
   }
   &::before{
     top: calc(50% - 15px); left: calc(50% - 15px);
-    width: 20px; height: 20px; border-radius: 50%;
-    border: 2px solid var(--iconColore);
+    width: 24px; height: 24px; border-radius: 50%;
+    border: 2px solid var(--iconColor);
   }
   &::after{
     top: calc(50% + 7px); left: calc(50% + 3px);
     width: 12px; height: 4px; border-radius:0 2px 2px 0;
     transform: rotate(45deg);
-    background-color: var(--iconColore);
+    background-color: var(--iconColor);
     transition: .2s;
   }
 }
@@ -96,7 +94,7 @@ a.goCenter{
 }
 
 
-// fat footer 開關
+// fat footer 開關 ------------------------------
 .fatFootCtrl{
   border: none; outline: none; background: #666;
   width: 40px;height: 40px;
@@ -121,15 +119,15 @@ a.goCenter{
 }
 
 
-// 回頁面頂端
+// 回頁面頂端 ------------------------------
 .goTop{
-  position: fixed; bottom: -60px; right: 12px;
+  position: fixed; bottom: -60px; right: 5px;
   width: 50px; height: 50px; 
 
-  &.show{bottom: 12px; }
+  &.show{bottom: 10px; }
   
   text-indent: -20em;overflow: hidden;
-  border-radius: 50%;border: none; background: gray;
+  border-radius: 50%;border: none; background: #555a;
   transition: bottom .6s, box-shadow .2s;
   &::before, &::after {
     content: ''; position: absolute;
@@ -146,12 +144,14 @@ a.goCenter{
     transition: .2s;
   }
 
-  &:hover{
-    background-color: black;box-shadow:gray 0 0 0 3px;
+  &:hover, &:focus{
+    background-color: #b00 ;
   }
+  &:focus{box-shadow:#b00 0 0 0 2px;}
 
-  @media screen and (min-width: calc($wwMaximum + 160px)){
-    left: calc(50% + $wwMaximum*.5 + 15px);
+  @media screen and (min-width: calc($wwMaximum + 70px)){
+    right: calc(50% - $wwMaximum*.5 - 30px);
+    // right: 50%;
   }
 
 }

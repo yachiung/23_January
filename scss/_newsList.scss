@@ -1,8 +1,9 @@
 // 項目 ul, li 條列 ////////////////////////////////////////////////
 .newsList{
   position: relative; padding:2em 0; margin:20px auto;
+
   .blockHeader{ 
-    border-bottom: 3px solid #888;
+    border-bottom: 3px solid #3086a5;
   }
   &>ul{
     list-style: none; margin: 0 3vw; padding: 0; line-height: 1.6;
@@ -26,13 +27,12 @@
     }
   }
 
-  @media screen and (min-width: $wwMedium){
-    
-  }
   
   @media screen and (min-width: $wwNormal){
+    padding: 4em 0 5em;
     width: calc(100% - $globalPadding*2);
     box-shadow: #5555 0 10px 40px;
+    &>ul{ }
   }
 
   @media screen and (min-width: $wwMaximum){
@@ -42,11 +42,99 @@
 
 
 
+// eventList ////////////////////////////////////////
+.eventList{
+  padding: 2em 0; margin:20px auto;
+  background-color: #fff;
+
+  .blockHeader{ 
+    border-bottom: 3px solid #3086a5;
+  }
+
+  ul{ list-style: none; margin: 0 3%; padding: 0;}
+  li{
+    overflow: hidden;
+    a{
+      display: flex; flex-flow: row nowrap;align-items: center;
+      position: relative; padding: 5px 30px 5px 0; min-height: 50px;
+      text-decoration: none; color: $fontColor;
+      border-bottom: 1px solid $borderColor;
+      &::after{
+        content: ''; position: absolute; right: 10px; top: 50%; margin-top: -7px;
+        width: 15px; height: 15px; border: 1px solid $borderColorDark;
+        border-left: none; border-bottom: none;
+        transform: rotate(45deg); transition: .2s;
+      }
+      &::before{
+        content: ''; position: absolute; width: 3.5rem; height: 2px; left: 0; bottom: -1px;
+        background-color: $fontColor; ;
+      }
+      &:hover, &:focus{
+        &::after{ right: 5px;}
+        border-bottom-color:  $borderColorDark;
+      }
+    }
+    p{
+      flex: 1 1 auto; margin: 0;
+      display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+    img{
+      display: none;
+      flex: 0 0 80px; margin: 0 15px 0 0;
+      width: 80px; height: 50px; object-fit: cover;
+    }
+    time{
+      flex: 0 0 3.5rem; margin-right: 18px;
+      width: 3.5rem; height: 50px; padding-top: 3px;
+      line-height: 1;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: .95rem; font-weight: bold; text-align: center;
+      transform: scaleY(90%);
+     
+     .date{
+       display: block;text-align: center;
+       font-style: normal;font-weight: bold; font-size: 2.2rem; 
+     }
+    }
+  }
+
+  @media screen and (min-width: $wwMedium){
+    li {
+      p{
+        display: block;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      img{
+        display: block;
+      }
+    }
+  }
+
+  @media screen and (min-width: $wwNormal){
+    padding: 4em 0 5em;
+    width: calc(100% - $globalPadding*2);
+    box-shadow: #5555 0 10px 40px;
+    &>ul{ margin: 0 5%;}
+  }
+
+  @media screen and (min-width: $wwMaximum){
+    width: calc($wwMaximum - $globalPadding*2);
+  }
+
+
+  // @media screen and (min-width: $wwNormal){
+  //   padding: 35px 60px;
+  //   box-shadow: #5555 0 10px 40px;
+
+  // }
+}
+
 
 // 測試滿版區塊
 .xxx {
   padding: 30px 0; margin: 0;
-  background: #555; color: #eee;
+  background: #496f7e; color: #eee;
 
   .blockHeader{
     margin: 0 $globalPadding;

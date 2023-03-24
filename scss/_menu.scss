@@ -102,15 +102,15 @@
  
   @media screen and (min-width: $wwNormal){
     display: block; position: relative; z-index: 990;
+    padding: 0 $globalPadding;
     background: #000; color: #fff;
-    padding: 0 var(--mhr);
     a{ display: block;}
     li{margin: 0; padding: 0;}
     
     &>ul{ 
       list-style: none; margin: 0 auto;padding: 0;
-      max-width: $wwMaximum; line-height: 1.5;
       display: flex; flex-flow: row nowrap;
+      line-height: 1.5;
 
       .hasChild{position: relative;}
 
@@ -124,7 +124,7 @@
           color:white;
           &:focus{background-color: black;}
         }
-        &:hover>a{background-color: black;}
+        &:hover>a{background-color: #b00;}
 
         &.hasChild {
           &>a{
@@ -212,7 +212,7 @@
 
   @media screen and (min-width: $wwMaximum){
     &>ul{
-      max-width:$wwMaximum ;
+      width:calc($wwMaximum - $globalPadding*2) ;
     }
   }
 }

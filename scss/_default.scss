@@ -37,7 +37,7 @@ body{
   padding: 1px 0 0;
 }
 
-
+// accesskey
 .accesskey{ 
   display: none; text-decoration: none; outline: none;
   @media screen and (min-width: $wwNormal){
@@ -46,12 +46,16 @@ body{
     &:focus{
       outline: 1px solid #000;
     }
+
   }
 }
+@media screen and (min-width: $wwNormal){
+  .footer .accesskey{top: 4px;}
+}
 @media screen and (min-width: $wwMaximum ){
-  .header .accesskey {left: calc(50% - $wwMaximum*.5 - 30px);}
-  .main .accesskey {}
-  .footer .accesskey {}
+  .header .accesskey,
+  .main .accesskey,
+  .footer .accesskey {left: calc( 50% - $wwMaximum*.5 );}
 }
 // --------
 
@@ -66,6 +70,8 @@ body{
 // form 元件
 input{
   &[type="button"], &[type="submit"], &[type="reset"],
-  &[type="radio"], &[type="checkbox"] { cursor: pointer; }
+  &[type="radio"], &[type="checkbox"] { 
+    cursor: pointer; outline: none;
+  }
 }
 button{ cursor: pointer; }

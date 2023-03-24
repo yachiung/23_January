@@ -1,12 +1,13 @@
+  // 查詢
+  .search {
+    z-index: 999;
+    position: fixed; left: 100%; right: -100%; top: $mobileHeaderHeight;
+  }
+
 .header .search{
-  // z-index: 999;
-  // position: fixed; left: 100%; right:-100%;
-  // top: $mobileHeaderHeight;
-  // padding: 8px 12px;
-  
   transition: .5s;
   background-color: #ddb;
-
+  padding: 8px 12px;
   &.show{
     left: 0; right: 0;
   }
@@ -44,7 +45,7 @@
 
   @media screen and (min-width: $wwNormal){
 
-    position: absolute; left: auto; right: 0;top: 4em;
+    position: absolute; left: auto;top: 4em; right: $globalPadding;
     padding: 0;
     background: none;
     transition: none;
@@ -54,18 +55,20 @@
     }
 
     form{
-      width: 18em;
-      input[type="text"]{ width: 12em;}
+      width: 20em;
+      input[type="text"]{ width: 16em;}
     }
     .hotKeywords{
       margin-top: 8px;
     }
-
-
   }
 
+  @media screen and (min-width: $wwMaximum){
+    right:calc( 50% - $wwMaximum*.5 + $globalPadding);
+  }
   
 }
+
 
 ////////////////////////////////////////////////////////////////
 
