@@ -22,7 +22,7 @@
     }
   }
 
-  .topNav {display: none;}
+  // .topNav {display: none;}
   .menu{ display: none;}
 
 
@@ -54,35 +54,32 @@
         display: block; height: 160px;line-height: 1;
       }
     }
-    .topNav {
-      display: block;
-      position: absolute; top: 0; right: $globalPadding;
-      padding:8px 0 4px; 
-
-      border: 1px dashed #fff; // 刪掉
-
-      ul {
-        list-style: none; margin: 0;padding: 0;
-        display: flex; flex-flow: row wrap;
-        li{
-          flex: 1 1 auto; margin: 0 0 0 1.5em;
-          &>a{
-            display: block; position: relative;
-            height: 1.6em; line-height: 1.5; 
-            text-decoration: none; outline: none;
-            &::after{
-              content: ''; position: absolute; left: 50%; bottom: 0;
-              height: 3px; width: 0;
-              transition: .2s;
-              background-color: #000;
-            }
-            &:hover, &:focus{
-              &::after{ width: 100%; left: 0;}
-            }
-          }
-        }
-      }
-    }
+    // .topNav {
+    //   display: block;
+    //   position: absolute; top: 0; right: $globalPadding;
+    //   padding:8px 0 4px; 
+    //   ul {
+    //     list-style: none; margin: 0;padding: 0;
+    //     display: flex; flex-flow: row wrap;
+    //     li{
+    //       flex: 1 1 auto; margin: 0 0 0 1.5em;
+    //       &>a{
+    //         display: block; position: relative;
+    //         height: 1.6em; line-height: 1.5; 
+    //         text-decoration: none; outline: none;
+    //         &::after{
+    //           content: ''; position: absolute; left: 50%; bottom: 0;
+    //           height: 3px; width: 0;
+    //           transition: .2s;
+    //           background-color: #000;
+    //         }
+    //         &:hover, &:focus{
+    //           &::after{ width: 100%; left: 0;}
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   @media screen and ( min-width: $wwMaximum ){

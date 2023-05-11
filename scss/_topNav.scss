@@ -1,0 +1,60 @@
+.topNav{
+  ul{list-style: none; margin: 0;padding: 0;}
+  li>a{ display: block; text-decoration: none;}
+}
+
+// 寬版 ------------------------------------------------------
+.header .topNav { display: none;
+
+  @media screen and (min-width: $wwNormal){
+    display: block;
+    position: absolute; top: 0; right: $globalPadding;
+    padding:8px 0 4px; 
+    ul {
+      display: flex; flex-flow: row wrap;
+      li{
+        flex: 1 1 auto; margin: 0 0 0 1.5em;
+        &>a{
+          position: relative;
+          height: 1.6em; line-height: 1.5; 
+          text-decoration: none; outline: none;
+          &::after{
+            content: ''; position: absolute; left: 50%; bottom: 0;
+            height: 3px; width: 0; transition: .2s;
+            background-color: #000;
+          }
+          &:hover, &:focus{
+            &::after{ width: 100%; left: 0;}
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and ( min-width: $wwMaximum ){
+
+    right: calc(50vw - $wwMaximum*.5 + $globalPadding);
+
+  }
+}
+
+
+// 行動版 ------------------------------------------------------
+.sidebar .topNav {
+  &>ul{
+    display: flex; flex-flow: row wrap; margin: 20px auto 0; width: 92%;
+    &>li{
+      flex: 1 1 45%; margin: 3px;
+      a{
+        display: block; height: 2.8em; line-height: 2.8;
+        border: 1px solid #0003; text-align: center;
+        transition: .2s;
+        &:hover, &:focus{ border-color: #000; }
+         &:focus{ box-shadow: #0008 0 0 0 1px;}
+      }
+
+    }
+  }
+
+}
+

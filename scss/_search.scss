@@ -17,12 +17,16 @@
   }
   input[type="text"] {
     padding: 0 .8em; 
+    &:focus{
+      box-shadow: #000 0 0 0 2px;
+    }
   
   }
   input[type="button"], input[type="submit"] {
-     background: #999;
-
-    padding: 0 .4em;
+    padding: 0 .4em; background: #fff;
+    &:focus{
+      box-shadow: #000 0 0 0 2px;
+    }
     
   }
 
@@ -87,10 +91,10 @@
   li {
     float: left; margin: 0 1em 0 0;
     a {
-      display: block; text-decoration: none;
+      display: block; text-decoration: none; outline: none;
       border-bottom: 2px solid transparent;
       &:hover, &:focus {
-        border-bottom-color: black;
+        border-bottom-color:#000
       }
     }
   }

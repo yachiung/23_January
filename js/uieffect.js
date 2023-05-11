@@ -9,9 +9,13 @@ $(document).ready(function(){
   var wwNew;
   var hh = _header.outerHeight();
   var _menu = _header.find('.menu');
+  var _sidebar = $('.sidebar');
+  _menu.find('li').has('ul').addClass('hasChild'); // 找出_menu中有次選單的li
+  _menu.clone().prependTo(_sidebar); // 複製「主選單」到行動版側欄
+  var _sidebarMenu = _sidebar.find('.menu');
+  $('.topNav').clone().appendTo(_sidebar);
 
   var _sidebarCtrl = $('.sidebarCtrl');
-  var _sidebar = $('.sidebar');
 
   var _goCenter =$('.goCenter');
   var _goTop = $('.goTop');
@@ -37,13 +41,6 @@ $(document).ready(function(){
 
 
   // 主選單 ////////////////////////////////////////
-  // 找出_menu中有次選單的li
-  _menu.find('li').has('ul').addClass('hasChild');
-  // 複製「主選單」到行動版側欄 ////////////////////
-  _menu.clone().prependTo(_sidebar);
-  var _sidebarMenu = _sidebar.find('.menu');
-  $('.topNav').clone().appendTo(_sidebar);
-
   // 寬版主選單 ////////////////////////////
   var _hasChild = _menu.find('.hasChild');
   var _hasChildA = _hasChild.children('a');
@@ -157,29 +154,35 @@ $(document).ready(function(){
       _sidebar.removeClass('show');
       _sidebarCtrl.removeClass('closeIt');
       _body.removeClass('noScroll');
-      _sidebarMask.fadeOut(400);
+      _sidebarMask.fadeOut(500, function(){
+        _sidebar.removeAttr('style');
+      });
     } else {
-      _sidebar.addClass('show');
+      _sidebar.show(0, function(){
+        _sidebar.addClass('show');
+      });
       _sidebarCtrl.addClass('closeIt');
       _body.addClass('noScroll')
-      _sidebarMask.fadeIn(400);
+      _sidebarMask.fadeIn(500);
     }
   });
   _sidebarMask.click(function(){
     _sidebar.removeClass('show');
     _sidebarCtrl.removeClass('closeIt');
     _body.removeClass('noScroll');
-    $(this).fadeOut(400);
+    $(this).fadeOut(500);
   });
 
   // 鍵盤操作：在_sidebarCtrl 按 Tab 鍵進入側欄主選單
-  _sidebarCtrl.keypress(function (e) {
+  _sidebarCtrl.keydown( function(e) {
     if ( _sidebar.hasClass('show') && e.code === "Tab" ) {
-      // _sidebarMenu.find('.first>a').focus();
-      _sidebar.find('button').focus();
-
+      _sidebarMenu.find('.first>a').focus();
+      e.preventDefault();
+    } else {
+      // $('.main').find('.accesskey').focus();
     }
   });
+
 
 
   // 行動版主選單第二層之後的顯示、隱藏 ////////////////////
@@ -207,18 +210,28 @@ $(document).ready(function(){
   // 版頭區查詢顯示、隱藏 ////////////////////
   var _searchCtrl = $('.searchCtrl');
   var _search = _header.find('.search');
+  var searchCtrlText = _searchCtrl.text();
+  var searchCtrlAltText = _searchCtrl.attr('data-altText');
   _searchCtrl.click( function(){
     _search.hasClass('show') ? hideSearch() : showSearch();
   });
   function showSearch() {
     _search.show(100, function(){
       _search.addClass('show');
+      _searchCtrl.text(searchCtrlAltText);
     })
+    _search.find('input[type="text"]').focus();
   }
   function hideSearch() {
     _search.removeClass('show');
-    setTimeout( function(){ _search.removeAttr('style') }, 600);
+    _searchCtrl.text(searchCtrlText);
+    setTimeout( function(){ 
+      _search.removeAttr('style');
+    }, 600);
   }
+  _search.find('li').last().find('a').blur( function(){
+    _searchCtrl.focus();
+  })
 
 
   // 固定版頭 ////////////////////
